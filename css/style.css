@@ -24,3 +24,26 @@ h1 {
     margin-top: 2rem;
     margin-left: 2rem;
 }
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.asset-item {
+    text-align: center;
+}
+
+.asset-item img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.asset-item p {
+    margin-top: 1rem;
+    font-weight: bold;
+}
