@@ -1,0 +1,8 @@
+title: DaikonScramble
+description: An indie game developed by daikonsoft
+theme: jekyll-theme-minimal
+baseurl: /DaikonScramble
+
+header_pages:
+  - pages/about.md
+  - pages/posts.md
