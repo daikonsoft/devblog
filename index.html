@@ -1,18 +1,318 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>DaikonSoft</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DaikonSoft</title>
+
+  <style>
+/* === LINK STYLING === */
+a:link, a:visited {
+  color: #cba6f7;
+  text-decoration: underline;
+}
+a:hover {
+  color: #f5c2e7;
+}
+a:active {
+  color: #b4befe;
+}
+
+/* === GLOBAL BODY === */
+body.crt {
+  font-family: ms ui gothic, sans-serif;
+  font-size: 16px;
+  color: #f5c2e7;
+  background: radial-gradient(circle at top left, #b4befe20 0%, transparent 60%),
+              radial-gradient(circle at bottom right, #cba6f720 0%, transparent 60%),
+              linear-gradient(to bottom right, #282a36, #1f1f2b, #282a36);
+  background-attachment: fixed;
+  padding: 10px;
+  overflow: auto;
+  position: relative;
+  animation: textShadow 1.6s infinite;
+}
+
+/* === CRT EFFECTS COVER ENTIRE PAGE === */
+body.crt::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.25) 50%),
+              linear-gradient(90deg, rgba(255,0,0,0.06),
+                                   rgba(0,255,0,0.02),
+                                   rgba(0,0,255,0.06));
+  background-size: 100% 2px, 3px 100%;
+  z-index: 2;
+  pointer-events: none;
+  
+}
+
+body.crt::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(18,16,16,0.1);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  animation: flicker 0.15s infinite;
+}
+
+/* === CONTAINER === */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1.2fr 1fr 1fr 1.8fr 0.2fr;
+  grid-template-areas:
+    "bar bar bar . . ."
+    "header header header header box box"
+    "main main main main main main"
+    "main main main main main main"
+    "main main main main main main"
+    "footer footer footer footer footer footer";
+  width: 700px;
+  height: 900px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* === BAR === */
+.bar {
+  grid-area: bar;
+  border: 1px solid #b4befe;
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  padding: 10px;
+  text-align: right;
+  box-shadow: 0 0 4px #cba6f740 inset;
+  background-color: #1f1f2b;
+}
+
+/* === HEADER === */
+.header {
+  grid-area: header;
+  border: 1px solid #b4befe;
+  border-right: none;
+  box-shadow: 0 0 4px #cba6f740 inset;
+  background: linear-gradient(to right, #1f1f2b, #2c2a3a);
+  display: flex;
+}
+
+/* === SITE TITLE === */
+.sitetitle {
+  align-self: flex-end;
+  font-size: 40px;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px;
+  color: #cba6f7;
+}
+
+/* === BOX NEXT TO HEADER === */
+.box {
+  grid-area: box;
+  border: 1px solid #b4befe;
+  border-radius: 0 20px 0 0;
+  padding: 10px;
+  background-color: #1f1f2b;
+  box-shadow: 0 0 4px #b4befe40 inset;
+  color: #f5c2e7;
+}
+
+/* === MAIN AREA === */
+.main {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "navigation content content"
+    "navigation content content"
+    "navigation content content"
+    "navigation content content"
+    "navigation content content"
+    "navigation content content";
+  grid-area: main;
+}
+
+/* === NAVIGATION === */
+.navigation {
+  grid-area: navigation;
+  border: 1px solid #b4befe;
+  border-top: none;
+  background-color: #1f1f2b;
+  box-shadow: 0 0 4px #b4befe40 inset;
+}
+
+/* === NAV TITLE === */
+.title {
+  padding: 10px;
+  text-align: center;
+  color: #cba6f7;
+  font-weight: bold;
+}
+
+/* === NAV BUTTONS === */
+.button {
+  width: 170px;
+  padding: 10px 10px 10px 20px;
+  border-top: 1px solid #b4befe;
+  border-bottom: none;
+  background-color: #282a36;
+  box-shadow: 0 1px 2px #1f1f2b inset;
+}
+.button:hover {
+  background-color: #34354a;
+  box-shadow: 0 0 6px #b4befe80 inset;
+}
+.button img {
+  vertical-align: middle;
+}
+
+/* === NAV INTRO === */
+.intro {
+  padding: 10px;
+  color: #f5c2e7;
+}
+
+/* === CONTENT AREA === */
+.content {
+  grid-area: content;
+  border: 1px solid #b4befe;
+  border-top: none;
+  border-left: none;
+  background-color: #1f1f2b;
+  box-shadow: 0 0 4px #b4befe40 inset;
+  padding: 10px;
+  overflow: auto;
+  color: #f5c2e7;
+}
+
+/* === BOXES INSIDE CONTENT === */
+.box1 {
+  width: 100%;
+  padding: 10px;
+  background-color: #34354a;
+  border: 1px solid #b4befe;
+  box-sizing: border-box;
+  box-shadow: 0 0 6px #cba6f740 inset;
+  color: #cba6f7;
+}
+
+.text {
+  width: 100%;
+  background-color: #1f1f2b;
+  border: 1px solid #b4befe;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  box-shadow: 0 0 6px #b4befe40 inset;
+  color: #f5c2e7;
+}
+
+/* === FOOTER === */
+.footer {
+  grid-area: footer;
+  border: 1px solid #b4befe;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  padding: 10px;
+  text-align: center;
+  background-color: #1f1f2b;
+  color: #b4befe;
+  box-shadow: 0 0 4px #b4befe40 inset;
+}
+
+/* === CRT ANIMATIONS === */
+@keyframes flicker {
+  0% {opacity:0.27861;}
+  5% {opacity:0.34769;}
+  10% {opacity:0.23604;}
+  15% {opacity:0.90626;}
+  20% {opacity:0.18128;}
+  25% {opacity:0.83891;}
+  30% {opacity:0.65583;}
+  35% {opacity:0.67807;}
+  40% {opacity:0.26559;}
+  45% {opacity:0.84693;}
+  50% {opacity:0.96019;}
+  55% {opacity:0.08594;}
+  60% {opacity:0.20313;}
+  65% {opacity:0.71988;}
+  70% {opacity:0.53455;}
+  75% {opacity:0.37288;}
+  80% {opacity:0.71428;}
+  85% {opacity:0.70419;}
+  90% {opacity:0.7003;}
+  95% {opacity:0.36108;}
+  100% {opacity:0.24387;}
+}
+
+@keyframes textShadow {
+  0% {text-shadow:0.44px 0 1px rgba(0,30,255,0.5),-0.44px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  5% {text-shadow:2.79px 0 1px rgba(0,30,255,0.5),-2.79px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  10% {text-shadow:0.03px 0 1px rgba(0,30,255,0.5),-0.03px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  15% {text-shadow:0.40px 0 1px rgba(0,30,255,0.5),-0.40px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  20% {text-shadow:3.47px 0 1px rgba(0,30,255,0.5),-3.47px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  25% {text-shadow:1.61px 0 1px rgba(0,30,255,0.5),-1.61px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  30% {text-shadow:0.70px 0 1px rgba(0,30,255,0.5),-0.70px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  35% {text-shadow:3.89px 0 1px rgba(0,30,255,0.5),-3.89px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  40% {text-shadow:3.87px 0 1px rgba(0,30,255,0.5),-3.87px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  45% {text-shadow:2.23px 0 1px rgba(0,30,255,0.5),-2.23px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  50% {text-shadow:0.08px 0 1px rgba(0,30,255,0.5),-0.08px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  55% {text-shadow:2.37px 0 1px rgba(0,30,255,0.5),-2.37px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  60% {text-shadow:2.20px 0 1px rgba(0,30,255,0.5),-2.20px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  65% {text-shadow:2.86px 0 1px rgba(0,30,255,0.5),-2.86px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  70% {text-shadow:0.49px 0 1px rgba(0,30,255,0.5),-0.49px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  75% {text-shadow:1.89px 0 1px rgba(0,30,255,0.5),-1.89px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  80% {text-shadow:0.08px 0 1px rgba(0,30,255,0.5),-0.08px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  85% {text-shadow:0.09px 0 1px rgba(0,30,255,0.5),-0.09px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  90% {text-shadow:3.44px 0 1px rgba(0,30,255,0.5),-3.44px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  95% {text-shadow:2.18px 0 1px rgba(0,30,255,0.5),-2.18px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+  100% {text-shadow:2.62px 0 1px rgba(0,30,255,0.5),-2.62px 0 1px rgba(255,0,80,0.3),0 0 3px;}
+}
+  </style>
 </head>
-<body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="pages/about.html">About</a>
-        <a href="pages/posts.html">Devblog</a>
-	<a href="pages/assets.html">Assets</a>
-    </nav>
-    
-    <h1>Welcome to DaikonSoft</h1>
-    <p>A place where we post the trials and tribulations of making games.</p>
+
+<body class="crt">
+
+<div class="container">
+  <div class="bar">DaikonSoft</div>
+  <div class="header">
+    <div class="sitetitle">DaikonSoft</div>
+  </div>
+  <div class="box">
+    A place where we document the trials and tribulations of making games.
+  </div>
+  <div class="main">
+    <div class="navigation">
+      <div class="title">Navigation</div>
+      <div class="button"><img src="https://rice.nekoweb.org/rice/ball_s_06s.gif"> <a href="index.html">Home</a></div>
+      <div class="button"><img src="https://rice.nekoweb.org/rice/ball_s_06s.gif"> <a href="pages/about.html">About</a></div>
+      <div class="button"><img src="https://rice.nekoweb.org/rice/ball_s_06s.gif"> <a href="pages/posts.html">Devblog</a></div>
+      <div class="button" style="border-bottom:1px solid #b4befe;"><img src="https://rice.nekoweb.org/rice/ball_s_06s.gif"> <a href="pages/assets.html">Assets</a></div>
+      <div class="intro">Welcome to DaikonScramble development!</div>
+    </div>
+    <div class="content">
+      <div class="box1">
+        What is DaikonScramble?
+        <div class="text">
+          DaikonScramble combines the endless wave, single stage gameplay of the classic 1983 Mario Bros arcade game, the movement and fighting mechanics of Super Smash Bros, bunnies, and an ever-expanding elevator shaft. It's a passion project born from a desire to create something meaningful and creative.
+        </div>
+      </div>
+      <div class="box1" style="margin-top:10px;">
+        Latest Updates
+        <div class="text">
+          Check out the devblog for the latest development progress, technical deep-dives, and behind-the-scenes stories about making DaikonScramble.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    DaikonSoft © 2025. Made with passion and a bit of desperation.
+  </div>
+</div>
+
 </body>
 </html>
