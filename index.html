@@ -23,7 +23,7 @@ body.crt {
   font-family: ms ui gothic, sans-serif;
   font-size: 16px;
   color: #f5c2e7;
-  background: radial-gradient(circle at top left, #b4befe20 0%, transparent 60%),
+  background: radial-gradient(circle at top left, #cba6f720 0%, transparent 60%),
               radial-gradient(circle at bottom right, #cba6f720 0%, transparent 60%),
               linear-gradient(to bottom right, #282a36, #1f1f2b, #282a36);
   background-attachment: fixed;
@@ -59,11 +59,13 @@ body.crt::after {
   animation: flicker 0.15s infinite;
 }
 
+
+
 /* === CONTAINER === */
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 1.2fr 1fr 1fr 1.8fr 0.2fr;
+  grid-template-rows: 0.2fr 0.8fr 1fr 1fr 1.8fr 0.2fr;
   grid-template-areas:
     "bar bar bar . . ."
     "header header header header box box"
@@ -71,7 +73,7 @@ body.crt::after {
     "main main main main main main"
     "main main main main main main"
     "footer footer footer footer footer footer";
-  width: 700px;
+  width: 900px;
   height: 900px;
   margin: auto;
   position: relative;
@@ -96,13 +98,13 @@ body.crt::after {
   border: 1px solid #b4befe;
   border-right: none;
   box-shadow: 0 0 4px #cba6f740 inset;
-  background: linear-gradient(to right, #1f1f2b, #2c2a3a);
+  background-color: #1f1f2b;
   display: flex;
+  align-items: flex-end
 }
 
 /* === SITE TITLE === */
-.sitetitle {
-  align-self: flex-end;
+.gametitle {
   font-size: 40px;
   font-weight: bold;
   width: 100%;
@@ -119,6 +121,9 @@ body.crt::after {
   background-color: #1f1f2b;
   box-shadow: 0 0 4px #b4befe40 inset;
   color: #f5c2e7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /* === MAIN AREA === */
@@ -127,7 +132,6 @@ body.crt::after {
   grid-template-columns: 0.5fr 1.5fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "navigation content content"
     "navigation content content"
     "navigation content content"
     "navigation content content"
@@ -143,6 +147,7 @@ body.crt::after {
   border-top: none;
   background-color: #1f1f2b;
   box-shadow: 0 0 4px #b4befe40 inset;
+  overflow: hidden;
 }
 
 /* === NAV TITLE === */
@@ -155,19 +160,25 @@ body.crt::after {
 
 /* === NAV BUTTONS === */
 .button {
-  width: 170px;
+  width: 150px;
   padding: 10px 10px 10px 20px;
   border-top: 1px solid #b4befe;
   border-bottom: none;
   background-color: #282a36;
   box-shadow: 0 1px 2px #1f1f2b inset;
+  transition: all 0.1s ease-out;
 }
+
 .button:hover {
-  background-color: #34354a;
-  box-shadow: 0 0 6px #b4befe80 inset;
+  -webkit-animation: wiggle 0.25s 2;
+  animation: wiggle 0.25s 2;
 }
-.button img {
-  vertical-align: middle;
+
+.button:hover a {
+  text-shadow:
+    3px 2px rgba(246, 0, 153, 0.7),
+   -3px -2px rgba(15, 210, 255, 0.7),
+    0px 0px rgba(255, 210, 0, 0.9);
 }
 
 /* === NAV INTRO === */
@@ -272,6 +283,36 @@ body.crt::after {
   95% {text-shadow:2.18px 0 1px rgba(0,30,255,0.5),-2.18px 0 1px rgba(255,0,80,0.3),0 0 3px;}
   100% {text-shadow:2.62px 0 1px rgba(0,30,255,0.5),-2.62px 0 1px rgba(255,0,80,0.3),0 0 3px;}
 }
+
+
+/* === WIGGLE KEYFRAMES === */
+@-webkit-keyframes wiggle {
+  0%   { -webkit-transform: skewX(24deg); transform: skewX(24deg); }
+  10%  { -webkit-transform: skewX(-8deg); transform: skewX(-8deg); }
+  20%  { -webkit-transform: skewX(55deg); transform: skewX(55deg); }
+  30%  { -webkit-transform: skewX(-90deg); transform: skewX(-90deg); }
+  40%  { -webkit-transform: skewX(29deg); transform: skewX(29deg); }
+  50%  { -webkit-transform: skewX(-90deg); transform: skewX(-90deg); }
+  60%  { -webkit-transform: skewX(3deg); transform: skewX(3deg); }
+  70%  { -webkit-transform: skewX(-2deg); transform: skewX(-2deg); }
+  80%  { -webkit-transform: skewX(1deg); transform: skewX(1deg); }
+  90%  { -webkit-transform: skewX(10deg); transform: skewX(10deg); }
+  100% { -webkit-transform: skewX(0deg); transform: skewX(0deg); }
+}
+
+@keyframes wiggle {
+  0%   { transform: skewX(24deg); }
+  10%  { transform: skewX(-8deg); }
+  20%  { transform: skewX(55deg); }
+  30%  { transform: skewX(-90deg); }
+  40%  { transform: skewX(29deg); }
+  50%  { transform: skewX(-90deg); }
+  60%  { transform: skewX(3deg); }
+  70%  { transform: skewX(-2deg); }
+  80%  { transform: skewX(1deg); }
+  90%  { transform: skewX(10deg); }
+  100% { transform: skewX(0deg); }
+}
   </style>
 </head>
 
@@ -280,7 +321,7 @@ body.crt::after {
 <div class="container">
   <div class="bar">DaikonSoft</div>
   <div class="header">
-    <div class="sitetitle">DaikonSoft</div>
+    <div class="gametitle">DaikonScramble Devblog</div>
   </div>
   <div class="box">
     A place where we document the trials and tribulations of making games.
