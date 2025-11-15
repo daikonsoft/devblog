@@ -20,7 +20,7 @@ body.crt {
   background-attachment: fixed;
   padding: 10px;
   overflow: auto;
-  position: fixed;
+  position: relative;
   top: 0; left: 0; right: 0; bottom: 0;
   animation: textShadow 1.6s infinite;
 }
