@@ -1,0 +1,33 @@
+name: Build RSS Feed
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Generate RSS Feed
+        run: npm run build-rss
+
+      - name: Commit and Push Updated feed.xml
+        run: |
+          git config user.name "RSS Bot"
+          git config user.email "rss@daikonsoft.ca"
+          git add feed.xml
+          git commit -m "Update feed.xml [skip ci]" || echo "No changes"
+          git push

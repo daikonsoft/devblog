@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "dependencies": {
+    "jsdom": "^24.0.0"
+  },
+  "scripts": {
+    "build-rss": "node generate-rss.js"
+  }
+}
