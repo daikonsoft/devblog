@@ -12,8 +12,9 @@
       <title><![CDATA[Devlog 0.1]]></title>
       <link>https://daikonsoft.ca/logs/devlog-0-1.html</link>
       <guid isPermaLink="true">https://daikonsoft.ca/logs/devlog-0-1.html</guid>
-      <pubDate>Mon, 17 Nov 2025 21:50:39 GMT</pubDate>
+      <pubDate>Mon, 17 Nov 2025 22:04:38 GMT</pubDate>
       <content:encoded><![CDATA[
+<div class="content">
 
 
             <div class="box1">
@@ -22,7 +23,7 @@
             </div>
 
             <div class="dialogue-box">
-                <img src="./assets/pearl-avatar.png" class="dialogue-avatar">
+                <img src="https://daikonsoft.ca/assets/pearl-avatar.png" class="dialogue-avatar">
 
                 <div class="dialogue-text">
 
@@ -62,10 +63,11 @@
                     <p>Sometimes the game waits because the rest of life needs you more.</p>
                 </div>
 
-                <img src="./assets/pearl-avatar.png" class="dialogue-avatar">
+                <img src="https://daikonsoft.ca/assets/pearl-avatar.png" class="dialogue-avatar">
             </div>
 
         
+</div>
       ]]></content:encoded>
     </item>
   
