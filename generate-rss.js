@@ -39,7 +39,19 @@ for (const file of logFiles) {
     `src="${siteUrl}/assets/`
   );
 
-  const wrappedHtml = `<div class="content">\n${htmlContent}\n</div>`;
+  const fullDocumentHTML = `
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8"/>
+  </head>
+  <body>
+  <div class="content">
+  ${htmlContent}
+  </div>
+  </body>
+  </html>
+  `;
 
   // Insert RSS item
   rss += `
@@ -49,7 +61,7 @@ for (const file of logFiles) {
       <guid isPermaLink="true">${siteUrl}/logs/${file}</guid>
       <pubDate>${pubDate}</pubDate>
       <content:encoded><![CDATA[
-${wrappedHtml}
+${fullDocumentHTML}
       ]]></content:encoded>
     </item>
   `;
