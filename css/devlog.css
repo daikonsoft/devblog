@@ -21,6 +21,14 @@
 
 }
 
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;  
+}
 
 a:link, a:visited {
   color: var(--header-color);
@@ -36,7 +44,7 @@ a:active {
 /* === GLOBAL BODY === */
 body.crt {
   font-family: ms ui gothic, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   color: #f5c2e7;
   background: radial-gradient(circle at top left, #cba6f720 0%, transparent 60%),
               radial-gradient(circle at bottom right, #cba6f720 0%, transparent 60%),
@@ -118,6 +126,8 @@ body.no-fx::after {
   text-align: right;
   box-shadow: 0 0 4px #cba6f740 inset;
   background-color: #1f1f2b;
+  color: var(--border-color);
+  font-weight:bold;
 }
 
 
@@ -136,10 +146,10 @@ body.no-fx::after {
 .main {
   display: grid;
   grid-template-columns: 0.4fr 1.5fr 1.5fr;
-  grid-template-rows: 1fr 1fr 2fr 2fr 2fr;
+  grid-template-rows: 1fr 0.7fr 2fr 2fr 2fr;
   grid-template-areas:
-    "navigation post-history post-history"
-    "navigation post-history post-history"
+    "navigation box box"
+    "navigation box box"
     "content content content"
     "content content content"
     "content content content";
@@ -150,7 +160,7 @@ body.no-fx::after {
 .navigation {
   grid-area: navigation;
   border: 1px solid var(--border-color);
-  border-bottom: none;
+  border-right: none;
   background-color: #1f1f2b;
   box-shadow: 0 0 4px #b4befe40 inset;
   overflow: hidden;
@@ -159,23 +169,99 @@ body.no-fx::after {
 /* === NAV TITLE === */
 .title {
   padding: 10px;
+  font-size:15px;
   text-align: center;
   color: var(--header-color);
   font-weight: bold;
-}
-
-.post-history {
-  grid-area: post-history;
+}/* === DEVLOG PAGE BOX IS IDENTICAL TO HOME PAGE BOX === */
+.box {
+  grid-area: box;
   border: 1px solid var(--border-color);
-  border-radius: 0px 20px 0px 0px;
+  border-radius: 0 20px 0 0;
+  padding: 10px;
   background-color: #1f1f2b;
   box-shadow: 0 0 4px #b4befe40 inset;
-  overflow-x: hidden;
-  overflow-y: auto;
-  border-left: none;
-  border-bottom: none;
-  padding-right: 8px;
+  color: var(--header-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+.box-content {
+    display: grid;
+    grid-template-areas:
+    "pearl-left links pearl-right"
+    "pearl-left links pearl-right";
+    grid-template-columns: 0.25fr 1fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 10px;
+    width: 100%;
+    color: var(--header-color);
+    position: relative;
+    overflow: hidden; /* Changed from auto to hidden */
+    height: 100%; /* Ensure it fills the box */
+}
+
+/* Devlog link section (center slot) */
+.devlog-links {
+  grid-area: links;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+  overflow-y: auto; /* Add scrolling here */
+  max-height: 100%; /* Constrain height */
+}
+
+.devlog-links::-webkit-scrollbar {
+  display: none;
+}
+
+.devlog-links {
+  -ms-overflow-style: none;
+  scrollbar-width: none;  
+}
+
+
+.pearl-left {
+  grid-area: pearl-left;
+  position: relative;
+  bottom: 15px;
+  height: 100%;
+  display: flex;
+  width: auto;
+  align-items: center;
+
+}
+
+.pearl-right {
+  grid-area: pearl-right;
+  position: relative;
+  bottom: 15px;
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+.pearl-left img,
+.pearl-right img {
+
+    width: auto;     /* fill the 120px column */
+    height: 160px;
+    image-rendering: pixelated;
+    display: block;
+}
+
+.pearl-left img {
+  transform:scaleX(-1);
+}
+
+.box-content h2 {
+  position:relative;
+  top:15px;
+}
+
+
+
 
 /* === NAV BUTTONS === */
 .bunny-button {
@@ -204,6 +290,8 @@ body.no-fx::after {
   border-bottom: none;
   background-color: #282a36;
   box-shadow: 0 1px 2px #1f1f2b inset;
+  color: var(--header-color);
+
 }
 
 .button:hover {
@@ -237,8 +325,6 @@ body.no-fx::after {
   color: var(--border-color);
 }
 
-
-
 .dialogue-avatar {
   width: 100%;
   max-width: 120px;
@@ -248,7 +334,7 @@ body.no-fx::after {
   border-radius: 20px;
   outline: 2px solid var(--pearl-color);
   transform: scaleX(-1);
-  outline-offset: 4px;   /* space between borders */
+  outline-offset: 4px;
 }
 
 .dialogue-empty {
@@ -256,7 +342,7 @@ body.no-fx::after {
 }
 
 .dialogue-text {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.6;
   padding: 20px;
   background-color: #2d2f42;
@@ -278,6 +364,9 @@ body.no-fx::after {
   padding: 10px;
   overflow: auto;
   color: #f5c2e7;
+  border-right: none;
+  border-left: none;
+  border-top:none;
 }
 
 /* === BOXES INSIDE CONTENT === */
@@ -294,7 +383,7 @@ body.no-fx::after {
 
 
 .text {
-  font-size: 18px;
+  font-size: 15px;
   width: 100%;
   background-color: #1f1f2b;
   border: 1px solid var(--border-color);
@@ -314,7 +403,7 @@ body.no-fx::after {
   padding: 10px;
   text-align: center;
   background-color: #1f1f2b;
-  color: var(--header-color);
+  color: var(--border-color);
   box-shadow: 0 0 4px #b4befe40 inset;
 }
 

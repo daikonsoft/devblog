@@ -24,28 +24,34 @@
             <div class="title">Navigation</div>
             <div class="button"><a href="./index.html">Home</a></div>
             <div class="button"><a href="./devlog.html">Devlog</a></div>
-            <div class="button"><a href="./assets.html">Assets</a></div>
+            <div class="button" style="border-bottom:1px solid var(--border-color);"><a href="./assets.html">Assets</a></div>
         </div>
 
         <!-- === POST HISTORY AREA === -->
-        <div class="post-history">
+            <div class="box">
 
-            <div class="title" style="padding:10px; text-align:center; color:var(--header-color); font-weight:bold;">
-                Post History
+            <div class="box-content">
+                <div class="pearl-left"><img src="./assets/pearl.png" alt=""></div>
+
+                <div class="devlog-links">
+                    <p><a href="#" data-log="./logs/devlog-0-1.html">Devlog 0.1 — NEHHHHHH</a></p>
+                                        <p><a href="#" data-log="./logs/devlog-0-1.html">Devlog 0.1 — NEHHHHHH</a></p>
+
+                                                            <p><a href="#" data-log="./logs/devlog-0-1.html">Devlog 0.1 — NEHHHHHH</a></p>
+                                                            <p><a href="#" data-log="./logs/devlog-0-1.html">Devlog 0.1 — NEHHHHHH</a></p>
+                                                            <p><a href="#" data-log="./logs/devlog-0-1.html">Devlog 0.1 — NEHHHHHH</a></p>
+                                                            <p><a href="#" data-log="./logs/devlog-0-1.html">Devlog 0.1 — NEHHHHHH</a></p>
+                                                            <p><a href="#" data-log="./logs/devlog-0-1.html">Devlog 0.1 — NEHHHHHH</a></p>
+
+                    <!-- more links later -->
+                </div>
+
+                <div class="pearl-right"><img src="./assets/pearl.png" alt=""></div>
             </div>
 
-            <div style="padding: 10px; line-height: 1.6;">
-
-                <p><a href="#" data-log="./logs/devlog-0-1.html">Devlog 0.1 - NEHHHHHHHHHHHHHHHHHHH</a></p>
-                <p><a href="#">Devlog 0.1 — NEHHHHHHHHHHHHHHHHHHH</a></p>
-                <p><a href="#">Devlog 0.1 — NEHHHHHHHHHHHHHHHHHHH</a></p>
-                <p><a href="#">Devlog 0.1 — NEHHHHHHHHHHHHHHHHHHH</a></p>
-                <p><a href="#">Devlog 0.1 — NEHHHHHHHHHHHHHHHHHHH</a></p>
-                <p><a href="#">Devlog 0.1 — NEHHHHHHHHHHHHHHHHHHH</a></p>
-                <p><a href="#">Devlog 0.1 — NEHHHHHHHHHHHHHHHHHHH</a></p>
             </div>
 
-        </div>
+
 
         <!-- === CONTENT AREA === -->
         <div class="content">
@@ -109,6 +115,16 @@ window.onpopstate = (event) => {
         loadDevlog(event.state.log);
     }
 };
+
+if (!initialLog) {
+    const firstPost = document.querySelector('.post-history a[data-log]');
+    if (firstPost) {
+        const logFile = firstPost.getAttribute('data-log')
+            .replace("./logs/", "")
+            .replace(".html", "");
+        loadDevlog(logFile);
+    }
+}
 
 </script>
 </body>
