@@ -12,13 +12,13 @@
       <title><![CDATA[Devlog 0.1]]></title>
       <link>https://daikonsoft.ca/devlog.html?log=devlog-0-1</link>
       <guid isPermaLink="true">https://daikonsoft.ca/devlog.html?log=devlog-0-1</guid>
-      <pubDate>Mon, 17 Nov 2025 23:00:16 GMT</pubDate>
-      <description><![CDATA[[Devlog 0.1 — NEHHHHHHHHHHHHHHHHHHH] [Date] Bed sincerity yet therefore forfeited his certainty neglected questions. Pursuit chamber as elderly amongst on. Distant however warrant farther to of. My ju...]]></description>
+      <pubDate>Tue, 18 Nov 2025 08:26:36 GMT</pubDate>
+      <description><![CDATA[[Devlog 0.1 — Test 1] [Date] Bed sincerity yet therefore forfeited his certainty neglected questions. Pursuit chamber as elderly amongst on. Distant however warrant farther to of. My justice wishing p...]]></description>
       <content:encoded><![CDATA[<div class="content">
 
 
             <div class="box1">
-                <h1>[Devlog 0.1 — NEHHHHHHHHHHHHHHHHHHH]</h1>
+                <h1>[Devlog 0.1 — Test 1]</h1>
                 <p class="post-date">[Date]</p>
             </div>
 
@@ -63,6 +63,66 @@
                     <p>Sometimes the game waits because the rest of life needs you more.</p>
                 </div>
 
+                <img src="https://daikonsoft.ca/assets/pearl-avatar.png" class="dialogue-avatar">
+            </div>
+
+        
+</div>]]></content:encoded>
+    </item>
+  
+    <item>
+      <title><![CDATA[Devlog 0.2]]></title>
+      <link>https://daikonsoft.ca/devlog.html?log=devlog-0-2</link>
+      <guid isPermaLink="true">https://daikonsoft.ca/devlog.html?log=devlog-0-2</guid>
+      <pubDate>Tue, 18 Nov 2025 08:26:36 GMT</pubDate>
+      <description><![CDATA[[Devlog 0.2 — Test 2] [Date] so much depends upon a red wheel barrow glazed with rain water beside the white chickens.]]></description>
+      <content:encoded><![CDATA[<div class="content">
+
+
+            <div class="box1">
+                <h1>[Devlog 0.2 — Test 2]</h1>
+                <p class="post-date">[Date]</p>
+            </div>
+
+            <div class="dialogue-box">
+                <img src="https://daikonsoft.ca/assets/pearl-avatar.png" class="dialogue-avatar">
+
+                <div class="dialogue-text">
+
+                    <p>so much depends upon</p>
+                </div>
+
+                
+
+                <div class="dialogue-empty"></div>
+            </div>
+            <br>
+
+            <div class="dialogue-box">
+                <div class="dialogue-empty"></div>
+
+                <div class="dialogue-text">
+                    <p>a red wheel barrow</p>
+                </div>
+
+                <img src="https://daikonsoft.ca/assets/pearl-avatar.png" class="dialogue-avatar">
+            </div>
+
+                        <div class="dialogue-box">
+                <img src="https://daikonsoft.ca/assets/pearl-avatar.png" class="dialogue-avatar">
+
+                <div class="dialogue-text">
+
+                    <p>glazed with rain water</p>
+                </div>
+                <div class="dialogue-empty"></div>
+            </div>
+                        <div class="dialogue-box">
+                <div class="dialogue-empty"></div>
+
+                <div class="dialogue-text">
+                    <p>beside the white chickens.</p>
+                </div>
                 <img src="https://daikonsoft.ca/assets/pearl-avatar.png" class="dialogue-avatar">
             </div>
 
